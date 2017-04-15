@@ -17,7 +17,7 @@ const Products = ({ products, handleOnProductSelect }) => {
             </div>
             {
                 products.map((product, index) => (
-                    <div key={index} className="row product"onClick={() => handleOnProductSelect(index)}>
+                    <div key={index} className="row product"onClick={() => handleOnProductSelect(product.lotId)}>
                         <div className="cell">{product.name}</div>
                         <div className="cell">{product.type}</div>
                         <div className="cell">{product.hasBulk ? 'yes' : 'no'}</div>

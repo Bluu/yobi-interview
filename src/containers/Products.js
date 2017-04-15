@@ -16,11 +16,11 @@ class ProductsContainer extends Component {
         this.props.getProductsRequest();
     }
 
-    handleOnProductSelect(productIndex) {
+    handleOnProductSelect(productLotId) {
         const { history } = this.props;
 
         history.push({
-            pathname: `/product/${productIndex}`,
+            pathname: `/product/${productLotId}`,
         })
     }
 
