@@ -5,6 +5,6 @@ import { sortObjectsList } from '../lib/common';
 
 export const getProducts = () => {
   return axios.get(FETCH_PRODUCTS_URL)
-    .then(response => ({ response: sortObjectsList(response.data, 'name') }))
-    .catch(error => ({ error }));
+    .then(response => ({ response:  sortObjectsList(response.data, 'name') }))
+    .catch(error => ({ error: 'error getting products' }));
 }
