@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import './App.css';
-
 import { Provider } from 'react-redux';
-import rootSaga from './sagas';
-import configureStore from './store';
 import createBrowserHistory from 'history/createBrowserHistory';
-
-import Home from './components/Home';
-import Products from './containers/Products';
-
 import {
     BrowserRouter as Router,
     Route,
 } from 'react-router-dom';
+
+import './App.css';
+
+import rootSaga from './sagas';
+import configureStore from './store';
+
+import Home from './components/Home';
+import Products from './containers/Products';
+import Product from './containers/Product';
 
 const { store } = configureStore(
     window.__INITIAL_STATE__,
@@ -29,6 +30,7 @@ class App extends Component {
             <div>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/" component={Products} />
+                <Route exact path="/product/:id" component={Product}/>
             </div>
         </Router>
       </Provider>

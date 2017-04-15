@@ -1,24 +1,31 @@
-import { fork, take, call } from 'redux-saga/effects';
+import { fork, take, call, put } from 'redux-saga/effects';
+
+import { 
+    GET_PRODUCTS_REQUEST,
+    getProductsRequestSuccess,
+    getProductsRequestFailure
+} from './actions/products';
+
+import { getProducts } from './api/products';
 
 // This is an example function of how we use our sagas to
 // make HTTP requests and handle actions.
-export function* exampleSaga() {
-    //while (true) {
-    //    yield take('GET_PRODUCTS_REQUEST');
+export function* getProductsSaga() {
+    while (true) {
+       yield take(GET_PRODUCTS_REQUEST);
 
-    //    const { response, error } = yield call(axios.get('someUrl'));
+       const { response, error } = yield call(getProducts);
 
-    //    if (response) {
-    //        yield put(someResponseSuccessActionHere());
-    //    } else {
-    //        yield put(someErrorResponseActionHere());
-    //    }
-    //}
+       if (response) {
+           yield put(getProductsRequestSuccess(response));
+       } else {
+           yield put(getProductsRequestFailure(error));
+       }
+    }
 }
 
 export default function* rootSaga() {
     yield [
-        //fork(exampleSaga), // Used as an example to 'wire-up' a saga to listen for actions
-        fork(() => true), // DELETE this when you add your saga, it is purely a placeholder
+        fork(getProductsSaga), // Used as an example to 'wire-up' a saga to listen for actions
     ];
 }

@@ -1,0 +1,19 @@
+div.table { 
+    display: table; 
+}
+
+div.row { 
+    display: table-row; 
+}
+
+div.cell { 
+    display: table-cell; 
+}
+
+div.product {
+    cursor: pointer;
+}
+
+div.product:hover {
+    background-color: gray;
+}

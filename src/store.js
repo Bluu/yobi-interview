@@ -3,6 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import {
     applyMiddleware,
     createStore,
+    compose,
 } from 'redux';
 
 import reducers from './reducers/';
@@ -17,7 +18,10 @@ export default function configureStore(initialState, mainSaga) {
     const store = createStore(
         reducers,
         initialState,
-        middleware,
+        compose(
+            middleware,
+            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+        )
     );
 
     sagaMiddleware.run(mainSaga);
