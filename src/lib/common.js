@@ -35,3 +35,7 @@ export const sortObjectsList = (list, sortField, sortType='ASC') => {
 export const findProduct = (list, lotId) => {
     return list.find(product => product.lotId === lotId);
 };
+
+export const filterProducts = (list, name) => {
+    return list.filter(product => product.name.toLowerCase().includes(name.toLowerCase()));
+}

@@ -4,6 +4,7 @@ const INITIAL_STATE = {
     products: [],
     isProcessing: false,
     error: null,
+    searchProductName: '',
 }
 
 export default function productsReducer(state = INITIAL_STATE, action) {
@@ -13,28 +14,30 @@ export default function productsReducer(state = INITIAL_STATE, action) {
                 ...state,
                 isProcessing: true,
             };
-            //break;
         }
 
         case a.GET_PRODUCTS_REQUEST_SUCCESS: {
-            // Handle action
             return {
                 ...state,
                 products: action.payload,
                 isProcessing: false,
                 error: null,
             };
-            //break;
         }
 
         case a.GET_PRODUCTS_REQUEST_FAILURE: {
-            // Handle action
             return {
                 ...state,
                 error: action.payload,
                 isProcessing: false,
             };
-            //break;
+        }
+
+         case a.SEARCH_PRODUCTS_BY_NAME: {
+            return {
+                ...state,
+                searchProductName: action.payload,
+            };
         }
 
         default:
