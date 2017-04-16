@@ -11,5 +11,5 @@ test('message is displayed correctly', () => {
         <ErrorMessage message={message} />
     );
 
-  expect(errorMessageComponent.text()).toEqual(message);
+    expect(errorMessageComponent.text()).toEqual(message);
 });

@@ -3,10 +3,10 @@ import { shallow } from 'enzyme';
 
 import Product from '../../components/Product';
 
-let product;;
+let product;
 
 beforeEach(() => {
-  product = {
+    product = {
         name: 'test name',
         type: 'test type',
         hasBulk: true,

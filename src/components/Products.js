@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/products.css';
 
 const Products = ({ products, handleOnProductSelect }) => {
-    if (products === []) {
+    if (products.length === 0) {
         return <div>No Products to Display</div>;
     }
 
