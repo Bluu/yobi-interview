@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import './styles/App.css';
+import './styles/center.css'
 
 import rootSaga from './sagas';
 import configureStore from './store';

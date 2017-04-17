@@ -8,6 +8,7 @@ div.row {
 
 div.cell { 
     display: table-cell; 
+    padding: 10px;
 }
 
 div.product {

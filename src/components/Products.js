@@ -8,23 +8,25 @@ const Products = ({ products, handleOnProductSelect }) => {
     }
 
     return (
-       <div className="table">
-            <div className="row">
-                <div className="cell">Product Name</div>
-                <div className="cell">Product Type</div>
-                <div className="cell">Has Bulk</div>
-                <div className="cell">Has Retail</div>
+        <div className="box">
+            <div className="table">
+                <div className="row">
+                    <div className="cell">Product Name</div>
+                    <div className="cell">Product Type</div>
+                    <div className="cell">Has Bulk</div>
+                    <div className="cell">Has Retail</div>
+                </div>
+                {
+                    products.map((product, index) => (
+                        <div key={index} className="row product"onClick={() => handleOnProductSelect(product.lotId)}>
+                            <div className="cell">{product.name}</div>
+                            <div className="cell">{product.type}</div>
+                            <div className="cell">{product.hasBulk ? 'yes' : 'no'}</div>
+                            <div className="cell">{product.hasRetail ? 'yes' : 'no'}</div>
+                        </div>
+                    ))
+                }
             </div>
-            {
-                products.map((product, index) => (
-                    <div key={index} className="row product"onClick={() => handleOnProductSelect(product.lotId)}>
-                        <div className="cell">{product.name}</div>
-                        <div className="cell">{product.type}</div>
-                        <div className="cell">{product.hasBulk ? 'yes' : 'no'}</div>
-                        <div className="cell">{product.hasRetail ? 'yes' : 'no'}</div>
-                    </div>
-                ))
-            }
         </div>
     );
 };
